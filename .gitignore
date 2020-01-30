@@ -1,4 +1,4 @@
-.node_modules
-.test.js
-.write.js
-.package-lock.json
+node_modules
+test.js
+write.js
+package-lock.json
