@@ -1,7 +1,7 @@
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const express = require("express");
 const multer = require('multer');
-const upload = multer({dest: 'uploads/'});
+const upload = multer({dest: 'uploads/'});// upload ur file destination path
 const app =express()
 const port = 8080
 var bodyParser = require('body-parser');
@@ -22,7 +22,7 @@ const header = req.body.header;
 console.log("hie",req.body.header);
 
 const csvWriter = createCsvWriter({
-  path: 'vineeths.csv',
+  path: 'vineeths.csv',  // .csv file path 
   header
 });
 
@@ -40,41 +40,6 @@ app.post('/upload', upload.single('key'), (req, res) => {
   //console.log(req.file);
   res.json({msg: 'Upload File'});
 });
-
-
-
-// const csvWriter = createCsvWriter({
-//   path: 'outses.csv',
-//   header: [
-//     {id: 'name', title: 'Name'},
-//     {id: 'surname', title: 'Surname'},
-//     {id: 'age', title: 'Age'},
-//     {id: 'gender', title: 'Gender'},
-//   ]
-// });
-
-// const data = [
-//   {
-//     name: 'John',
-//     surname: 'Snow',
-//     age: 26,
-//     gender: 'M'
-//   }, {
-//     name: 'Clair',
-//     surname: 'White',
-//     age: 33,
-//     gender: 'F',
-//   }, {
-//     name: 'Fancy',
-//     surname: 'Brown',
-//     age: 78,
-//     gender: 'F'
-//   }
-// ];
-
-// csvWriter
-//   .writeRecords(data)
-//   .then(()=> console.log('The CSV file was written successfully'));
 
 
 app.listen(port,()=>console.log("working on", port))  
